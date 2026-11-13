@@ -1,6 +1,6 @@
 resource "aws_instance" "roboshop-web" {
-  instance_type = "t3.micro"
-  ami = "ami-0055977a6e828a4f4"
+  instance_type = "var.instance_type"
+  ami = "var.ami_id"
   vpc_security_group_ids = [aws_security_group.roboshop-web.id]
 
   tags = {
@@ -26,5 +26,4 @@ resource "aws_security_group" "roboshop-web" {
         to_port         = 0
         protocol        = "-1"
         cidr_blocks      = ["0.0.0.0/0"]
-  }  
-}
+  }  }
